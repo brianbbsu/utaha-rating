@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>王師宇 Leo Wang's Rating</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <main>
+            <div id="header-div">Leo Wang(王師宇)'s Codeforces Rating</div>
+            <table id="CF-rating-table">
+                <thead>
+                    <tr>
+                        <th @click="SortField('handle')">Handle <i class="fas" v-bind:class="{'fa-sort': (CurrentSortingField === ''),'fa-sort-up': (CurrentSortingField === 'handle' && SortingDir === 'asc'),'fa-sort-down': (CurrentSortingField === 'handle' && SortingDir === 'desc')}"></i></th>
+                        <th @click="SortField('rating')">Rating <i class="fas" v-bind:class="{'fa-sort': (CurrentSortingField === ''),'fa-sort-up': (CurrentSortingField === 'rating' && SortingDir === 'asc'),'fa-sort-down': (CurrentSortingField === 'rating' && SortingDir === 'desc')}"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in ratings">
+                        <td>
+                            <a v-bind:href="'https://codeforces.com/profile/' + item.handle" class="profile-link" v-bind:style="{'color': GetColor(item.rank)}">
+                                {{ item.handle }}
+                            </a>
+                        </td>
+                        <td>{{ item.rating }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <div id="footer">
+            Brian Su&nbsp;&nbsp;<a href="https://github.com/brianbbsu/brianbbsu.github.io" target="_blank" id="github-link"><img height="16" width="16" src="github.svg" /></a>&nbsp;&nbsp;2018
+        </div> 
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
