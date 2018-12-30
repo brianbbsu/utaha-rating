@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
-        accounts: ["iloveIMO","UtahaSenpai","iloveUtaha","UtahaS3npai","Utahaaaa","6thUtaha"],
+        accounts: ["_Utaha_","UtahaSenpai","iloveUtaha","UtahaS3npai","Utahaaaa","6thUtaha"],
         ratings: [],
         CurrentSortingField: "",
         SortingDir: ""
